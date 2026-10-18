@@ -9,7 +9,7 @@
 
 
 
-## 快速开始
+
 
 1. 打开 `chrome://extensions`（Edge 为 `edge://extensions`）
 2. 打开右上角“开发者模式”
