@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdBlock Mini</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5 4.5 5.4v5.2c0 4.7 3.2 9.1 7.5 10.9 4.3-1.8 7.5-6.2 7.5-10.9V5.4L12 2.5Z" fill="currentColor"/>
+        <path d="m8.4 12 2.4 2.4 4.8-5" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="name">AdBlock Mini</div>
+        <div class="sub" id="globalLabel">全局拦截已开启</div>
+      </div>
+    </div>
+    <label class="switch" title="全局开关">
+      <input type="checkbox" id="globalToggle">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <section class="site" id="siteSection">
+      <div class="site-text">
+        <div class="site-host" id="siteHost">当前网站</div>
+        <div class="site-state" id="siteState">正在读取…</div>
+      </div>
+      <label class="switch small" title="本站开关">
+        <input type="checkbox" id="siteToggle">
+        <span class="slider"></span>
+      </label>
+    </section>
+
+    <section class="stats">
+      <div class="count" id="count">0</div>
+      <div class="count-label">本页拦截的请求</div>
+      <div class="status" id="status"></div>
+    </section>
+
+    <div class="actions">
+      <button id="picker" class="primary" type="button">
+        <span aria-hidden="true">⌖</span> 拦截元素
+      </button>
+      <button id="options" type="button">高级设置</button>
+    </div>
+  </main>
+
+  <footer>
+    <span id="ruleInfo">加载规则中…</span>
+    <span id="warning" class="warning" hidden></span>
+  </footer>
+
+  <script src="generated.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

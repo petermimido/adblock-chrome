@@ -1,0 +1,102 @@
+{
+  "manifest_version": 3,
+  "name": "AdBlock Mini",
+  "version": "1.0.0",
+  "description": "轻量广告与追踪器拦截器：EasyList/EasyPrivacy + 自定义规则，纯 MV3 declarativeNetRequest。",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "AdBlock Mini",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "rules/cosmetic-generic.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "use_dynamic_url": true
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "easylist_0",
+        "enabled": true,
+        "path": "rules/easylist_0.json"
+      },
+      {
+        "id": "easylist_1",
+        "enabled": false,
+        "path": "rules/easylist_1.json"
+      },
+      {
+        "id": "easylist_2",
+        "enabled": false,
+        "path": "rules/easylist_2.json"
+      },
+      {
+        "id": "easyprivacy_0",
+        "enabled": true,
+        "path": "rules/easyprivacy_0.json"
+      },
+      {
+        "id": "easyprivacy_1",
+        "enabled": false,
+        "path": "rules/easyprivacy_1.json"
+      },
+      {
+        "id": "easyprivacy_2",
+        "enabled": false,
+        "path": "rules/easyprivacy_2.json"
+      },
+      {
+        "id": "annoyances_0",
+        "enabled": false,
+        "path": "rules/annoyances_0.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdBlock Mini 设置</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.5 4.5 5.4v5.2c0 4.7 3.2 9.1 7.5 10.9 4.3-1.8 7.5-6.2 7.5-10.9V5.4L12 2.5Z" fill="currentColor"/>
+          <path d="m8.4 12 2.4 2.4 4.8-5" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h1>AdBlock Mini</h1>
+          <p>Manifest V3 · declarativeNetRequest + 元素隐藏</p>
+        </div>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card span-2">
+      <h2>过滤列表</h2>
+      <p class="hint">默认启用 EasyList 与 EasyPrivacy。规则在本地构建，不联网更新。</p>
+      <div class="list-grid" id="lists"></div>
+    </section>
+
+    <section class="card span-2">
+      <h2>自定义网络规则</h2>
+      <p class="hint">支持 Adblock 语法，每行一条。支持 <code>||domain^</code>、<code>*</code>、<code>^</code>、<code>$third-party</code>、<code>$script,image</code>、<code>$domain=example.com</code>、<code>$important</code> 和 <code>@@</code> 例外。最多 4000 条。</p>
+      <textarea id="customFilters" spellcheck="false" placeholder="||ads.example.com^&#10;@@||example.com/ads.js&#10;/banner/*$image,third-party"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>网站白名单</h2>
+      <p class="hint">每行一个域名。域名及其子域将暂停拦截。也可在弹窗里切换当前网站。</p>
+      <textarea id="disabledSites" spellcheck="false" placeholder="example.com&#10;news.example.org"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>元素隐藏规则</h2>
+      <p class="hint">通过弹窗的“拦截元素”添加。域名留空表示全站生效。</p>
+      <div id="customCosmetic" class="cosmetic-list"></div>
+    </section>
+
+    <section class="card span-2">
+      <h2>运行状态</h2>
+      <div class="stats" id="stats"></div>
+    </section>
+  </main>
+
+  <footer class="bar">
+    <div class="bar-status" id="status" role="status"></div>
+    <div class="bar-actions">
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+      <button type="button" id="import">导入</button>
+      <button type="button" id="export">导出</button>
+      <button type="button" class="primary" id="save">保存设置</button>
+    </div>
+  </footer>
+
+  <script src="generated.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

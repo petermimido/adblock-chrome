@@ -1,0 +1,5 @@
+_metadata/
+tools/cache/
+alternatives/
+__pycache__/
+*.pyc
